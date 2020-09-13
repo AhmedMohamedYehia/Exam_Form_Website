@@ -58,7 +58,7 @@ function App() {
     start()
   };
   return (
-      <Layout style={{height:"120vh"}} className="hide">
+      <Layout style={{height:"120vh",backgroundColor:"white"}} className="hide">
         <Header style={{ position: 'fixed', zIndex: 1, width: '100%'}}>
           <Row>
             <Col span={2}>
@@ -152,7 +152,7 @@ function App() {
             </Col>
           </Row>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>©2020 Energia Powered</Footer>
+        <Footer style={{ textAlign: 'center',backgroundColor:"white" }}>©2020 Energia Powered</Footer>
       </Layout>
   );
 }
