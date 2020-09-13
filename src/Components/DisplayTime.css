@@ -1,0 +1,10 @@
+#display-time{
+    width: 10%;
+    text-align: center;
+}
+#display-time .display-time-container{
+    width: 100%;
+}
+.ant-progress-text{
+    display: none !important;
+}
