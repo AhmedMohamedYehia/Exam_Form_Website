@@ -6,6 +6,7 @@
 #display-time .display-time-container {
   width: 100%;
 }
+
 #display-time .display-time-container .ant-progress {
   top: -3rem;
 }
@@ -16,6 +17,7 @@
 
 .ant-form-item-label {
   text-align: left !important;
+  max-width: 100% !important;
 }
 
 .quesiton {

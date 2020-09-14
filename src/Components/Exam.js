@@ -11,7 +11,7 @@ const layout = {
   },
 };
 
-function Questions({ questions }) {
+function Questions({ questions, updateAnswers }) {
   return questions.map((question) => (
     <div>
       <h3>Question {question.id}</h3>
@@ -19,16 +19,14 @@ function Questions({ questions }) {
         name={`question${question.id}`}
         label={question.question}
         className="quesiton"
-        rules={[
-          {
-            required: true,
-            message: "Please answer this question",
-          },
-        ]}
       >
         <Radio.Group style={{ display: "flex", flexDirection: "column" }}>
           {question.answers.map((answer) => (
-            <Radio value={answer} style={{ width: "fit-content" }}>
+            <Radio
+              onChange={updateAnswers}
+              value={answer}
+              style={{ width: "fit-content" }}
+            >
               {answer}
             </Radio>
           ))}
@@ -38,16 +36,10 @@ function Questions({ questions }) {
   ));
 }
 
-function Exam({ setTakingExam, setFinishedExam, setTime }) {
-  const onFinish = (values) => {
-    console.log(values);
-    setTakingExam(false);
-    setFinishedExam(true);
-    setTime({ seconds: 0, minutes: 40 });
-  };
+function Exam({ onFinish, updateAnswers }) {
   return (
     <Form {...layout} onFinish={onFinish} autoComplete="off">
-      <Questions questions={QUESTIONS} />
+      <Questions questions={QUESTIONS} updateAnswers={updateAnswers} />
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
         <Button type="primary" htmlType="submit">
           Submit Exam

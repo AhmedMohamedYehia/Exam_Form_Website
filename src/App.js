@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import DisplayTime from "./Components/DisplayTime";
-import Exam from "./Components/Exam";
+import DisplayTime from "./components/DisplayTime";
+import Exam from "./components/Exam";
 import "./App.css";
 import "antd/dist/antd.css";
 import image from "./logo.png";
@@ -16,7 +16,7 @@ import {
   Button,
   Descriptions,
 } from "antd";
- 
+
 const layout = {
   labelCol: {
     span: 8,
@@ -30,8 +30,9 @@ const { Header, Content, Footer } = Layout;
 function App() {
   const [takingExam, setTakingExam] = useState(false);
   const [finishedExam, setFinishedExam] = useState(false);
+  const [answeredQuestions, setAnsweredQuestions] = useState(0);
   const [userData, setUserData] = useState({});
-  const [time, setTime] = useState({ seconds: 0, minutes: 40 });
+  const [time, setTime] = useState({ seconds: 0, minutes: 1 });
 
   var updatedSeconds = time.seconds;
   var updatedMinutes = time.minutes;
@@ -42,24 +43,41 @@ function App() {
   };
 
   const run = () => {
-    if (updatedSeconds === 0 && updatedMinutes !== 0 && !finishedExam) {
+    if (updatedSeconds === 0 && updatedMinutes !== 0) {
       updatedMinutes--;
       updatedSeconds = 60;
     }
-    if (updatedMinutes === 0 && updatedSeconds === 0 && !finishedExam) {
+    if (updatedMinutes === 0 && updatedSeconds === 0) {
       setFinishedExam(true);
       setTakingExam(false);
-    } else if (!finishedExam) {
+    } else {
       updatedSeconds--;
     }
     return setTime({ seconds: updatedSeconds, minutes: updatedMinutes });
   };
 
-  const onFinish = (values) => {
+  const updateAnswers = () => setAnsweredQuestions(answeredQuestions + 1);
+
+  const onLoginFinish = (values) => {
     setUserData(values);
     setTakingExam(true);
     start();
   };
+
+  const onExamFinish = (values) => {
+    Object.values(values).forEach(
+      (answer, index) =>
+        typeof answer === "undefined" &&
+        (values[`question${index + 1}`] = "Didn't answer")
+    );
+
+    console.log(values);
+    setAnsweredQuestions(0);
+    setTakingExam(false);
+    setFinishedExam(true);
+    setTime({ seconds: 0, minutes: 0 });
+  };
+
   return (
     <Layout
       style={{ minHeight: "100vh", backgroundColor: "white" }}
@@ -76,6 +94,13 @@ function App() {
           <Col span={2}>
             <DisplayTime time={time} />
           </Col>
+          {takingExam ? (
+            <Col span={2} offset={7} style={{ color: "white" }}>
+              {answeredQuestions}/20
+            </Col>
+          ) : (
+            ""
+          )}
         </Row>
       </Header>
       <Content
@@ -135,7 +160,7 @@ function App() {
                 }}
               >
                 <Col span={16} offset={2}>
-                  <Form {...layout} onFinish={onFinish} autoComplete="off">
+                  <Form {...layout} onFinish={onLoginFinish} autoComplete="off">
                     <Form.Item
                       name={["user", "name"]}
                       label="Name"
@@ -189,11 +214,7 @@ function App() {
               </Col>
               <div className="questions-section">
                 <Col span={16} offset={6}>
-                  <Exam
-                    setTakingExam={setTakingExam}
-                    setFinishedExam={setFinishedExam}
-                    setTime={setTime}
-                  />
+                  <Exam onFinish={onExamFinish} updateAnswers={updateAnswers} />
                 </Col>
               </div>
             </div>
