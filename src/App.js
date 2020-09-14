@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import DisplayTime from "./components/DisplayTime";
-import Exam from "./components/Exam";
+import DisplayTime from "./Components/DisplayTime";
+import Exam from "./Components/Exam";
 import "./App.css";
 import "antd/dist/antd.css";
 import image from "./logo.png";
@@ -16,7 +16,7 @@ import {
   Button,
   Descriptions,
 } from "antd";
-
+ 
 const layout = {
   labelCol: {
     span: 8,
@@ -73,7 +73,7 @@ function App() {
           <Col offset={8} style={{ color: "white" }}>
             Remaining Time:
           </Col>
-          <Col>
+          <Col span={2}>
             <DisplayTime time={time} />
           </Col>
         </Row>

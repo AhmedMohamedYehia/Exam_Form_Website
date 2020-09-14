@@ -1,10 +1,13 @@
 #display-time {
-  width: 10%;
+  width: 100%;
   text-align: center;
 }
 
 #display-time .display-time-container {
   width: 100%;
+}
+#display-time .display-time-container .ant-progress {
+  top: -3rem;
 }
 
 .ant-progress-text {
