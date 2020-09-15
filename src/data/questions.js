@@ -4,9 +4,9 @@ export const QUESTIONS = [
         question: "What is the best student activity Egypt?",
         answers: [
             "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
+            "Energia Powered",
+            "Energia Powered",
+            "Energia Powered"
         ],
         correct: "Energia Powered"
     },
@@ -15,9 +15,9 @@ export const QUESTIONS = [
         question: "What is the best student activity Egypt?",
         answers: [
             "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
+            "Energia Powered",
+            "Energia Powered",
+            "Energia Powered"
         ],
         correct: "Energia Powered"
     },
@@ -26,9 +26,9 @@ export const QUESTIONS = [
         question: "What is the best student activity Egypt?",
         answers: [
             "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
+            "Energia Powered",
+            "Energia Powered",
+            "Energia Powered"
         ],
         correct: "Energia Powered"
     },
@@ -37,9 +37,9 @@ export const QUESTIONS = [
         question: "What is the best student activity Egypt?",
         answers: [
             "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
+            "Energia Powered",
+            "Energia Powered",
+            "Energia Powered"
         ],
         correct: "Energia Powered"
     },
@@ -48,9 +48,9 @@ export const QUESTIONS = [
         question: "What is the best student activity Egypt?",
         answers: [
             "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
+            "Energia Powered",
+            "Energia Powered",
+            "Energia Powered"
         ],
         correct: "Energia Powered"
     },
@@ -59,9 +59,9 @@ export const QUESTIONS = [
         question: "What is the best student activity Egypt?",
         answers: [
             "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
+            "Energia Powered",
+            "Energia Powered",
+            "Energia Powered"
         ],
         correct: "Energia Powered"
     },
@@ -70,9 +70,9 @@ export const QUESTIONS = [
         question: "What is the best student activity Egypt?",
         answers: [
             "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
+            "Energia Powered",
+            "Energia Powered",
+            "Energia Powered"
         ],
         correct: "Energia Powered"
     },
@@ -81,9 +81,9 @@ export const QUESTIONS = [
         question: "What is the best student activity Egypt?",
         answers: [
             "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
+            "Energia Powered",
+            "Energia Powered",
+            "Energia Powered"
         ],
         correct: "Energia Powered"
     },
@@ -92,9 +92,9 @@ export const QUESTIONS = [
         question: "What is the best student activity Egypt?",
         answers: [
             "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
+            "Energia Powered",
+            "Energia Powered",
+            "Energia Powered"
         ],
         correct: "Energia Powered"
     },
@@ -103,9 +103,9 @@ export const QUESTIONS = [
         question: "What is the best student activity Egypt?",
         answers: [
             "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
+            "Energia Powered",
+            "Energia Powered",
+            "Energia Powered"
         ],
         correct: "Energia Powered"
     },
@@ -114,9 +114,9 @@ export const QUESTIONS = [
         question: "What is the best student activity Egypt?",
         answers: [
             "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
+            "Energia Powered",
+            "Energia Powered",
+            "Energia Powered"
         ],
         correct: "Energia Powered"
     },

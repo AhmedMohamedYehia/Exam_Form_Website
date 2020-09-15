@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import DisplayTime from "./components/DisplayTime";
-import Exam from "./components/Exam";
+import React, { useEffect, useState } from "react";
+import DisplayTime from "./Components/DisplayTime";
+import Exam from "./Components/Exam";
 import "./App.css";
 import "antd/dist/antd.css";
 import image from "./logo.png";
+import { QUESTIONS } from "./data/questions";
 
 import {
   Layout,
@@ -15,6 +16,7 @@ import {
   Input,
   Button,
   Descriptions,
+  BackTop 
 } from "antd";
 
 const layout = {
@@ -32,11 +34,16 @@ function App() {
   const [finishedExam, setFinishedExam] = useState(false);
   const [answeredQuestions, setAnsweredQuestions] = useState(0);
   const [userData, setUserData] = useState({});
-  const [time, setTime] = useState({ seconds: 0, minutes: 1 });
-
+  const [time, setTime] = useState({ seconds: 0, minutes: 40 });
+  const [timeFinished,setTimeFinished] = useState(false)
   var updatedSeconds = time.seconds;
   var updatedMinutes = time.minutes;
 
+  useEffect(()=>{
+    if(time.minutes === 0 && time.seconds===0){
+      setTimeFinished(true)
+    }
+  },[time])
   const start = () => {
     run();
     setInterval(run, 1000);
@@ -56,7 +63,7 @@ function App() {
     return setTime({ seconds: updatedSeconds, minutes: updatedMinutes });
   };
 
-  const updateAnswers = () => setAnsweredQuestions(answeredQuestions + 1);
+  const updateAnswers = (numberOfAnsweredQuestions) => setAnsweredQuestions(numberOfAnsweredQuestions);
 
   const onLoginFinish = (values) => {
     setUserData(values);
@@ -68,22 +75,22 @@ function App() {
     Object.values(values).forEach(
       (answer, index) =>
         typeof answer === "undefined" &&
-        (values[`question${index + 1}`] = "Didn't answer")
+        (values[`${index + 1}`] = "Didn't answer")
     );
-
-    console.log(values);
+    
+    console.log(values[1]);
     setAnsweredQuestions(0);
     setTakingExam(false);
     setFinishedExam(true);
-    setTime({ seconds: 0, minutes: 0 });
   };
 
+  
   return (
     <Layout
       style={{ minHeight: "100vh", backgroundColor: "white" }}
       className="hide"
     >
-      <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
+      <Header style={{ position: "fixed", zIndex: 1, width: "100%"}}>
         <Row>
           <Col span={2}>
             <Avatar size="large" src={image} />
@@ -201,8 +208,9 @@ function App() {
             <div
               className="entered-data"
               style={{ display: !takingExam ? "none" : "" }}
+
             >
-              <Col span={16} offset={6}>
+              <Col span={16} offset={6}> 
                 <Descriptions title="Entered User Info">
                   <Descriptions.Item label="Name">
                     {takingExam ? userData.user.name : ""}
@@ -213,8 +221,8 @@ function App() {
                 </Descriptions>
               </Col>
               <div className="questions-section">
-                <Col span={16} offset={6}>
-                  <Exam onFinish={onExamFinish} updateAnswers={updateAnswers} />
+                <Col span={16} offset={4}>
+                  <Exam onFinish={onExamFinish} updateAnswers={updateAnswers} timeFinished={timeFinished} QUESTIONS={QUESTIONS} />
                 </Col>
               </div>
             </div>
@@ -238,6 +246,21 @@ function App() {
       <Footer style={{ textAlign: "center", backgroundColor: "white" }}>
         ©2020 Energia Powered
       </Footer>
+      <BackTop>
+        <div 
+          style = {{
+            height: 40,
+            width: 40,
+            lineHeight: '40px',
+            borderRadius: 4,
+            backgroundColor: '#1088e9',
+            color: '#fff',
+            textAlign: 'center',
+            fontSize: 14,
+        }}>
+          Top
+        </div>
+      </BackTop>
     </Layout>
   );
 }
