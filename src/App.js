@@ -7,7 +7,6 @@ import image from "./logo.png";
 import { QUESTIONS } from "./data/questions";
 
 import {
-  Layout,
   Row,
   Col,
   Avatar,
@@ -18,16 +17,6 @@ import {
   Descriptions,
   BackTop 
 } from "antd";
-
-const layout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
-const { Header, Content, Footer } = Layout;
 
 function App() {
   const [takingExam, setTakingExam] = useState(false);
@@ -82,14 +71,18 @@ function App() {
     setTakingExam(false);
     setFinishedExam(true);
     setTime({ seconds: 999, minutes: 999 })
+    // const scriptURL = 'https://script.google.com/macros/s/AKfycbwatGE75meRLf7abyvVgSnuTMdaPPzYjsCeWVGPiy3f9DxGVia1/exec'
+    // const form = document.forms['submit-to-google-sheet']
+
+    //   fetch(scriptURL, { method: 'POST', body: values})
+    //     .then(response => console.log('Success!', response))
+    //     .catch(error => console.error('Error!', error.message))
+    
   };
 
   
   return (
-    <Layout
-      style={{ minHeight: "100vh", backgroundColor: "white" }}
-      className="hide"
-    >
+    <>
       <div style={{ position: "fixed", zIndex: 1, width: "100%" ,top: "0", backgroundColor:"#333"}}>
         <dic className="row">
           <div className="col-1" style={{marginLeft:"1rem",marginBottom:"0",marginTop:"1rem",marginBottom:"0.5rem"}}>
@@ -110,9 +103,9 @@ function App() {
           )}
         </dic>
       </div>
-      <Content
+      <div
         className="site-layout"
-        style={{ padding: "0 50px", marginTop: 64 }}
+        style={{ padding: "0 50px", marginTop: "100px" }}
       >
         <div className="row">
           <div className="col-lg-2 col-sm-0"></div>
@@ -168,7 +161,7 @@ function App() {
               >
                 <div className="col-lg-2 col-sm-0"></div>
                 <div className="col-lg-8 col-sm-8">
-                  <Form {...layout} onFinish={onLoginFinish} autoComplete="off">
+                  <Form  onFinish={onLoginFinish} autoComplete="off">
                     <Form.Item
                       name={["user", "name"]}
                       label="Name"
@@ -197,8 +190,8 @@ function App() {
                     >
                       <Input />
                     </Form.Item>
-                    <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-                      <Button type="secondry" htmlType="submit">
+                    <Form.Item >
+                      <Button type="secondry" htmlType="submit" size="large">
                         Start Exam
                       </Button>
                     </Form.Item>
@@ -243,11 +236,11 @@ function App() {
             </div>
           </div>
         </div>
-      </Content>
-      <Footer style={{ textAlign: "center", backgroundColor: "white" , margin:"2rem"}}>
+      </div>
+      <div style={{ textAlign: "center", backgroundColor: "white" , margin:"2rem"}}>
         ©2020 Energia Powered
-      </Footer>
-      {/* <BackTop>
+      </div>
+      <BackTop>
         <div 
           style = {{
             height: 40,
@@ -261,8 +254,8 @@ function App() {
         }}>
           Top
         </div>
-      </BackTop> */}
-    </Layout>
+      </BackTop>
+    </>
   );
 }
 
