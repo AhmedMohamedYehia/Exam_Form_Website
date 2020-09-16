@@ -38,7 +38,6 @@ function App() {
   const [timeFinished,setTimeFinished] = useState(false)
   var updatedSeconds = time.seconds;
   var updatedMinutes = time.minutes;
-
   useEffect(()=>{
     if(time.minutes === 0 && time.seconds===0){
       setTimeFinished(true)
@@ -78,10 +77,11 @@ function App() {
         (values[`${index + 1}`] = "Didn't answer")
     );
     
-    console.log(values[1]);
+    console.log(values);
     setAnsweredQuestions(0);
     setTakingExam(false);
     setFinishedExam(true);
+    setTime({ seconds: 999, minutes: 999 })
   };
 
   
@@ -90,48 +90,48 @@ function App() {
       style={{ minHeight: "100vh", backgroundColor: "white" }}
       className="hide"
     >
-      <Header style={{ position: "fixed", zIndex: 1, width: "100%"}}>
-        <Row>
-          <Col span={2}>
+      <div style={{ position: "fixed", zIndex: 1, width: "100%" ,top: "0", backgroundColor:"#333"}}>
+        <dic className="row">
+          <div className="col-1" style={{marginLeft:"1rem",marginBottom:"0",marginTop:"1rem",marginBottom:"0.5rem"}}>
             <Avatar size="large" src={image} />
-          </Col>
-          <Col offset={8} style={{ color: "white" }}>
-            Remaining Time:
-          </Col>
-          <Col span={2}>
+          </div>
+          <div className="col-4"></div>
+          <div className="col-2" style={{paddingTop:"1rem", display: finishedExam ? "none" : ''}}>
             <DisplayTime time={time} />
-          </Col>
+          </div>
+          <div className="col-3" style={{display:takingExam?"none":""}}></div>
+          {/* <div className="col-1" style={{display:takingExam?"":"none"}}></div> */}
           {takingExam ? (
-            <Col span={2} offset={7} style={{ color: "white" }}>
+            <div className="col-1" offset={7} style={{ color: "white", paddingTop:"1rem" }}>
               {answeredQuestions}/20
-            </Col>
+            </div>
           ) : (
             ""
           )}
-        </Row>
-      </Header>
+        </dic>
+      </div>
       <Content
         className="site-layout"
         style={{ padding: "0 50px", marginTop: 64 }}
       >
-        <Row>
-          <Col
-            span={16}
-            offset={4}
+        <div className="row">
+          <div className="col-lg-2 col-sm-0"></div>
+          <div className="col-lg-8 col-sm-12"
             style={{ backgroundColor: "#eee", paddingTop: "1rem" }}
           >
             <div className="info-section">
-              <div className="logo">
-                <Col span={15} offset={9}>
-                  <Image width={200} src={image} alt="Energia Powered's logo" />
-                </Col>
+              <div className="logo row">
+                <div className="col-4"></div>
+                <div className="col-lg-4 col-sm-0 col-md-2" >
+                  <img  style={{maxWidth: "100%",maxHeight: "100%"}} src={image} alt="Energia Powered's logo" />
+                </div>
               </div>
               <div className="name">
-                <Col>
+                <div className="col">
                   <h1 style={{ fontSize: "1.8rem", textAlign: "center" }}>
                     Energia Powered
                   </h1>
-                </Col>
+                </div>
               </div>
               <div
                 className="info"
@@ -166,7 +166,8 @@ function App() {
                   display: takingExam || finishedExam ? "none" : "",
                 }}
               >
-                <Col span={16} offset={2}>
+                <div className="col-lg-2 col-sm-0"></div>
+                <div className="col-lg-8 col-sm-8">
                   <Form {...layout} onFinish={onLoginFinish} autoComplete="off">
                     <Form.Item
                       name={["user", "name"]}
@@ -202,7 +203,7 @@ function App() {
                       </Button>
                     </Form.Item>
                   </Form>
-                </Col>
+                </div>
               </div>
             </div>
             <div
@@ -240,13 +241,13 @@ function App() {
                 </p>
               </Col>
             </div>
-          </Col>
-        </Row>
+          </div>
+        </div>
       </Content>
-      <Footer style={{ textAlign: "center", backgroundColor: "white" }}>
+      <Footer style={{ textAlign: "center", backgroundColor: "white" , margin:"2rem"}}>
         ©2020 Energia Powered
       </Footer>
-      <BackTop>
+      {/* <BackTop>
         <div 
           style = {{
             height: 40,
@@ -260,7 +261,7 @@ function App() {
         }}>
           Top
         </div>
-      </BackTop>
+      </BackTop> */}
     </Layout>
   );
 }

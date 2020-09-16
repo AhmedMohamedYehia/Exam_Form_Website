@@ -10,7 +10,7 @@ function DisplayTime(props) {
       <div id="display-time">
         <div className="display-time-container">
           <div style={{ color: "white" , marginBottom:"0.4rem"}}>
-            <span>{(props.time.minutes >= 10) ? props.time.minutes : "0" + props.time.minutes}</span>&nbsp;:&nbsp;
+            <span>Time:  {(props.time.minutes >= 10) ? props.time.minutes : "0" + props.time.minutes}</span>&nbsp;:&nbsp;
             <span>{(props.time.seconds >= 10) ? props.time.seconds : "0" + props.time.seconds}</span>
           </div>
           <Progress percent={percentage}  />
