@@ -5,24 +5,27 @@ import "./App.css";
 import "antd/dist/antd.css";
 import image from "./logo.png";
 import $ from "jquery";
-import { QUESTIONS } from "./data/questions";
-
+import { QUESTIONS } from "./Data/questions";
 import { Col, Avatar, Form, Input, Button, Descriptions, BackTop } from "antd";
 
 function App() {
   const [takingExam, setTakingExam] = useState(false);
   const [finishedExam, setFinishedExam] = useState(false);
   const [answeredQuestions, setAnsweredQuestions] = useState(0);
+  const [userGrade, setUserGrade] = useState(0);
   const [userData, setUserData] = useState({});
   const [time, setTime] = useState({ seconds: 10, minutes: 0 });
   const [timeFinished, setTimeFinished] = useState(false);
+
   var updatedSeconds = time.seconds;
   var updatedMinutes = time.minutes;
+
   useEffect(() => {
     if (time.minutes === 0 && time.seconds === 0) {
       setTimeFinished(true);
     }
   }, [time]);
+
   const start = () => {
     run();
     setInterval(run, 1000);
@@ -52,24 +55,28 @@ function App() {
   };
 
   const onExamFinish = (values) => {
-    Object.values(values).forEach(
-      (answer, index) =>
-        typeof answer === "undefined" &&
-        (values[`${index + 1}`] = "Didn't answer")
-    );
+    let grade = userGrade;
+    Object.values(values).forEach((answer, index) => {
+      typeof answer === "undefined" &&
+        (values[`${index + 1}`] = "Didn't answer");
+      answer === QUESTIONS[index].correct && (grade += 1);
+    });
+
+    setUserGrade(grade);
 
     values["name"] = userData.user.name;
     values["email"] = userData.user.email;
+    values["grade"] = grade;
 
     console.log(values);
     setAnsweredQuestions(0);
     setTakingExam(false);
     setFinishedExam(true);
     setTime({ seconds: 999, minutes: 999 });
-    const scriptURL =
-      "https://script.google.com/macros/s/AKfycbzm-iZ_pf9sd0XGLcAk3-2hzhXHLpc4uv5nW9mVk5Q2ZjvyOWdx/exec";
-    var jqxhr = $.ajax({
-      url: scriptURL,
+
+    $.ajax({
+      url:
+        "https://script.google.com/macros/s/AKfycbzm-iZ_pf9sd0XGLcAk3-2hzhXHLpc4uv5nW9mVk5Q2ZjvyOWdx/exec",
       method: "GET",
       dataType: "json",
       data: values,
@@ -94,7 +101,6 @@ function App() {
             className="col-1"
             style={{
               marginLeft: "1rem",
-              marginBottom: "0",
               marginTop: "1rem",
               marginBottom: "0.5rem",
             }}
@@ -262,7 +268,7 @@ function App() {
                 <p style={{ fontSize: "19px", textAlign: "center" }}>
                   Thank you {finishedExam ? userData.user.name : ""} for taking
                   the exam. <br />
-                  Your answers are submitted.
+                  Your grade is {userGrade}/20
                 </p>
               </Col>
             </div>
