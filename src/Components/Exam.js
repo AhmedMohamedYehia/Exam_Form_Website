@@ -77,6 +77,7 @@ function Questions({ questions, updateAnswers, onFinish, timeFinished }) {
 function Exam({ onFinish, updateAnswers, timeFinished, QUESTIONS }) {
   useEffect(() => {
     if (timeFinished) {
+      console.log("submitted inside")
       onFinish(dummyAnswers);
     }
   }, [timeFinished]);

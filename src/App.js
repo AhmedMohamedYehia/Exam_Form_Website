@@ -14,7 +14,7 @@ function App() {
   const [finishedExam, setFinishedExam] = useState(false);
   const [answeredQuestions, setAnsweredQuestions] = useState(0);
   const [userData, setUserData] = useState({});
-  const [time, setTime] = useState({ seconds: 0, minutes: 40 });
+  const [time, setTime] = useState({ seconds: 10, minutes: 0 });
   const [timeFinished, setTimeFinished] = useState(false);
   var updatedSeconds = time.seconds;
   var updatedMinutes = time.minutes;
@@ -73,7 +73,8 @@ function App() {
       method: "GET",
       dataType: "json",
       data: values,
-    }).success(console.log("success"));
+      success:function(){console.log("success")}
+    })
     console.log(jqxhr);
   };
 
