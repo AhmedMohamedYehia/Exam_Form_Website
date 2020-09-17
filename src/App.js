@@ -4,19 +4,10 @@ import Exam from "./Components/Exam";
 import "./App.css";
 import "antd/dist/antd.css";
 import image from "./logo.png";
+import $ from "jquery";
 import { QUESTIONS } from "./data/questions";
 
-import {
-  Row,
-  Col,
-  Avatar,
-  Image,
-  Form,
-  Input,
-  Button,
-  Descriptions,
-  BackTop 
-} from "antd";
+import { Col, Avatar, Form, Input, Button, Descriptions, BackTop } from "antd";
 
 function App() {
   const [takingExam, setTakingExam] = useState(false);
@@ -24,14 +15,14 @@ function App() {
   const [answeredQuestions, setAnsweredQuestions] = useState(0);
   const [userData, setUserData] = useState({});
   const [time, setTime] = useState({ seconds: 0, minutes: 40 });
-  const [timeFinished,setTimeFinished] = useState(false)
+  const [timeFinished, setTimeFinished] = useState(false);
   var updatedSeconds = time.seconds;
   var updatedMinutes = time.minutes;
-  useEffect(()=>{
-    if(time.minutes === 0 && time.seconds===0){
-      setTimeFinished(true)
+  useEffect(() => {
+    if (time.minutes === 0 && time.seconds === 0) {
+      setTimeFinished(true);
     }
-  },[time])
+  }, [time]);
   const start = () => {
     run();
     setInterval(run, 1000);
@@ -51,7 +42,8 @@ function App() {
     return setTime({ seconds: updatedSeconds, minutes: updatedMinutes });
   };
 
-  const updateAnswers = (numberOfAnsweredQuestions) => setAnsweredQuestions(numberOfAnsweredQuestions);
+  const updateAnswers = (numberOfAnsweredQuestions) =>
+    setAnsweredQuestions(numberOfAnsweredQuestions);
 
   const onLoginFinish = (values) => {
     setUserData(values);
@@ -65,37 +57,67 @@ function App() {
         typeof answer === "undefined" &&
         (values[`${index + 1}`] = "Didn't answer")
     );
-    
+
+    values["name"] = userData.user.name;
+    values["email"] = userData.user.email;
+
     console.log(values);
     setAnsweredQuestions(0);
     setTakingExam(false);
     setFinishedExam(true);
-    setTime({ seconds: 999, minutes: 999 })
-    // const scriptURL = 'https://script.google.com/macros/s/AKfycbwatGE75meRLf7abyvVgSnuTMdaPPzYjsCeWVGPiy3f9DxGVia1/exec'
-    // const form = document.forms['submit-to-google-sheet']
-
-    //   fetch(scriptURL, { method: 'POST', body: values})
-    //     .then(response => console.log('Success!', response))
-    //     .catch(error => console.error('Error!', error.message))
-    
+    setTime({ seconds: 999, minutes: 999 });
+    const scriptURL =
+      "https://script.google.com/macros/s/AKfycbzm-iZ_pf9sd0XGLcAk3-2hzhXHLpc4uv5nW9mVk5Q2ZjvyOWdx/exec";
+    var jqxhr = $.ajax({
+      url: scriptURL,
+      method: "GET",
+      dataType: "json",
+      data: values,
+    }).success(console.log("success"));
+    console.log(jqxhr);
   };
 
-  
   return (
     <>
-      <div style={{ position: "fixed", zIndex: 1, width: "100%" ,top: "0", backgroundColor:"#333"}}>
+      <div
+        style={{
+          position: "fixed",
+          zIndex: 1,
+          width: "100%",
+          top: "0",
+          backgroundColor: "#333",
+        }}
+      >
         <dic className="row">
-          <div className="col-1" style={{marginLeft:"1rem",marginBottom:"0",marginTop:"1rem",marginBottom:"0.5rem"}}>
+          <div
+            className="col-1"
+            style={{
+              marginLeft: "1rem",
+              marginBottom: "0",
+              marginTop: "1rem",
+              marginBottom: "0.5rem",
+            }}
+          >
             <Avatar size="large" src={image} />
           </div>
           <div className="col-4"></div>
-          <div className="col-2" style={{paddingTop:"1rem", display: finishedExam ? "none" : ''}}>
+          <div
+            className="col-2"
+            style={{ paddingTop: "1rem", display: finishedExam ? "none" : "" }}
+          >
             <DisplayTime time={time} />
           </div>
-          <div className="col-3" style={{display:takingExam?"none":""}}></div>
+          <div
+            className="col-3"
+            style={{ display: takingExam ? "none" : "" }}
+          ></div>
           {/* <div className="col-1" style={{display:takingExam?"":"none"}}></div> */}
           {takingExam ? (
-            <div className="col-1" offset={7} style={{ color: "white", paddingTop:"1rem" }}>
+            <div
+              className="col-1"
+              offset={7}
+              style={{ color: "white", paddingTop: "1rem" }}
+            >
               {answeredQuestions}/20
             </div>
           ) : (
@@ -109,14 +131,19 @@ function App() {
       >
         <div className="row">
           <div className="col-lg-2 col-sm-0"></div>
-          <div className="col-lg-8 col-sm-12"
+          <div
+            className="col-lg-8 col-sm-12"
             style={{ backgroundColor: "#eee", paddingTop: "1rem" }}
           >
             <div className="info-section">
               <div className="logo row">
                 <div className="col-4"></div>
-                <div className="col-lg-4 col-sm-0 col-md-2" >
-                  <img  style={{maxWidth: "100%",maxHeight: "100%"}} src={image} alt="Energia Powered's logo" />
+                <div className="col-lg-4 col-sm-0 col-md-2">
+                  <img
+                    style={{ maxWidth: "100%", maxHeight: "100%" }}
+                    src={image}
+                    alt="Energia Powered's logo"
+                  />
                 </div>
               </div>
               <div className="name">
@@ -161,7 +188,7 @@ function App() {
               >
                 <div className="col-lg-2 col-sm-0"></div>
                 <div className="col-lg-8 col-sm-8">
-                  <Form  onFinish={onLoginFinish} autoComplete="off">
+                  <Form onFinish={onLoginFinish} autoComplete="off">
                     <Form.Item
                       name={["user", "name"]}
                       label="Name"
@@ -190,7 +217,7 @@ function App() {
                     >
                       <Input />
                     </Form.Item>
-                    <Form.Item >
+                    <Form.Item>
                       <Button type="secondry" htmlType="submit" size="large">
                         Start Exam
                       </Button>
@@ -202,9 +229,8 @@ function App() {
             <div
               className="entered-data"
               style={{ display: !takingExam ? "none" : "" }}
-
             >
-              <Col span={16} offset={6}> 
+              <Col span={16} offset={6}>
                 <Descriptions title="Entered User Info">
                   <Descriptions.Item label="Name">
                     {takingExam ? userData.user.name : ""}
@@ -216,7 +242,12 @@ function App() {
               </Col>
               <div className="questions-section">
                 <Col span={16} offset={4}>
-                  <Exam onFinish={onExamFinish} updateAnswers={updateAnswers} timeFinished={timeFinished} QUESTIONS={QUESTIONS} />
+                  <Exam
+                    onFinish={onExamFinish}
+                    updateAnswers={updateAnswers}
+                    timeFinished={timeFinished}
+                    QUESTIONS={QUESTIONS}
+                  />
                 </Col>
               </div>
             </div>
@@ -237,21 +268,28 @@ function App() {
           </div>
         </div>
       </div>
-      <div style={{ textAlign: "center", backgroundColor: "white" , margin:"2rem"}}>
+      <div
+        style={{
+          textAlign: "center",
+          backgroundColor: "white",
+          margin: "2rem",
+        }}
+      >
         ©2020 Energia Powered
       </div>
       <BackTop>
-        <div 
-          style = {{
+        <div
+          style={{
             height: 40,
             width: 40,
-            lineHeight: '40px',
+            lineHeight: "40px",
             borderRadius: 4,
-            backgroundColor: '#1088e9',
-            color: '#fff',
-            textAlign: 'center',
+            backgroundColor: "#1088e9",
+            color: "#fff",
+            textAlign: "center",
             fontSize: 14,
-        }}>
+          }}
+        >
           Top
         </div>
       </BackTop>

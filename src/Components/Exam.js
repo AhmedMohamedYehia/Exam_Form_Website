@@ -31,20 +31,19 @@ let dummyAnswers = {
   18: "Didn't answer",
   19: "Didn't answer",
   20: "Didn't answer",
-}
-let numberOfAnsweredQuestions = 0
+};
+let numberOfAnsweredQuestions = 0;
 
 function Questions({ questions, updateAnswers, onFinish, timeFinished }) {
-  const answered = (e,quesitonID)=>{
-    dummyAnswers[quesitonID] = e.target.value
-    numberOfAnsweredQuestions = 0
+  const answered = (e, quesitonID) => {
+    dummyAnswers[quesitonID] = e.target.value;
+    numberOfAnsweredQuestions = 0;
     for (let i = 1; i < 21; i++) {
-      if(dummyAnswers[i] != "Didn't answer"){
-        numberOfAnsweredQuestions += 1
+      if (dummyAnswers[i] !== "Didn't answer") {
+        numberOfAnsweredQuestions += 1;
       }
     }
-
-  }
+  };
   return questions.map((question) => (
     <div>
       <h3>Question {question.id}</h3>
@@ -52,9 +51,14 @@ function Questions({ questions, updateAnswers, onFinish, timeFinished }) {
         name={`${question.id}`}
         label={question.question}
         className="quesiton"
-        style={{borderBottom:"solid lightGrey",paddingBottom:"0.8rem"}}
+        style={{ borderBottom: "solid lightGrey", paddingBottom: "0.8rem" }}
       >
-        <Radio.Group style={{ display: "flex", flexDirection: "column" }} onChange={(e)=>{answered(e,question.id)}}>
+        <Radio.Group
+          style={{ display: "flex", flexDirection: "column" }}
+          onChange={(e) => {
+            answered(e, question.id);
+          }}
+        >
           {question.answers.map((answer) => (
             <Radio
               onChange={updateAnswers}
@@ -71,14 +75,19 @@ function Questions({ questions, updateAnswers, onFinish, timeFinished }) {
 }
 
 function Exam({ onFinish, updateAnswers, timeFinished, QUESTIONS }) {
-  useEffect(()=>{
-    if(timeFinished){
-      onFinish(dummyAnswers)
+  useEffect(() => {
+    if (timeFinished) {
+      onFinish(dummyAnswers);
     }
-  },[timeFinished])
+  }, [timeFinished]);
   return (
     <Form {...layout} onFinish={onFinish} autoComplete="off">
-      <Questions questions={QUESTIONS} updateAnswers={updateAnswers(numberOfAnsweredQuestions)} onFinish={onFinish} timeFinished={timeFinished}/>
+      <Questions
+        questions={QUESTIONS}
+        updateAnswers={updateAnswers(numberOfAnsweredQuestions)}
+        onFinish={onFinish}
+        timeFinished={timeFinished}
+      />
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
         <Button type="primary" htmlType="submit">
           Submit Exam
