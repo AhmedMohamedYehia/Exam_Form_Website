@@ -56,11 +56,13 @@ function App() {
 
   const onExamFinish = (values) => {
     let grade = userGrade;
-    Object.values(values).forEach((answer, index) => {
-      typeof answer === "undefined" &&
+    Object.values(values).forEach((answer, index) => 
+      {typeof answer === "undefined" &&
         (values[`${index + 1}`] = "Didn't answer");
-      answer === QUESTIONS[index].correct && (grade += 1);
-    });
+        console.log("answer: "+answer)
+      if(QUESTIONS[index] && answer === QUESTIONS[index].correct){
+        grade += 1
+      }})
 
     setUserGrade(grade);
 
