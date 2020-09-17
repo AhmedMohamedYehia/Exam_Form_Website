@@ -14,7 +14,7 @@ function App() {
   const [answeredQuestions, setAnsweredQuestions] = useState(0);
   const [userGrade, setUserGrade] = useState(0);
   const [userData, setUserData] = useState({});
-  const [time, setTime] = useState({ seconds: 10, minutes: 0 });
+  const [time, setTime] = useState({ seconds: 0, minutes: 1 });
   const [timeFinished, setTimeFinished] = useState(false);
 
   var updatedSeconds = time.seconds;
@@ -59,7 +59,7 @@ function App() {
     Object.values(values).forEach((answer, index) => 
       {typeof answer === "undefined" &&
         (values[`${index + 1}`] = "Didn't answer");
-        console.log("answer: "+answer)
+        // console.log("answer: "+answer)
       if(QUESTIONS[index] && answer === QUESTIONS[index].correct){
         grade += 1
       }})
@@ -70,7 +70,7 @@ function App() {
     values["email"] = userData.user.email;
     values["grade"] = grade;
 
-    console.log(values);
+    // console.log(values);
     setAnsweredQuestions(0);
     setTakingExam(false);
     setFinishedExam(true);
@@ -82,7 +82,7 @@ function App() {
       method: "GET",
       dataType: "json",
       data: values,
-      success:function(){console.log("success")}
+      // success:function(){console.log("success")}
     })
     // console.log(jqxhr);
   };

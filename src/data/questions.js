@@ -1,7 +1,7 @@
 export const QUESTIONS = [
     {
         id: 1,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "Energia Powered",
@@ -12,7 +12,7 @@ export const QUESTIONS = [
     },
     {
         id: 2,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "Energia Powered",
@@ -23,7 +23,7 @@ export const QUESTIONS = [
     },
     {
         id: 3,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "Energia Powered",
@@ -34,7 +34,7 @@ export const QUESTIONS = [
     },
     {
         id: 4,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "Energia Powered",
@@ -45,7 +45,7 @@ export const QUESTIONS = [
     },
     {
         id: 5,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "Energia Powered",
@@ -56,7 +56,7 @@ export const QUESTIONS = [
     },
     {
         id: 6,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "Energia Powered",
@@ -67,7 +67,7 @@ export const QUESTIONS = [
     },
     {
         id: 7,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "Energia Powered",
@@ -78,7 +78,7 @@ export const QUESTIONS = [
     },
     {
         id: 8,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "Energia Powered",
@@ -89,7 +89,7 @@ export const QUESTIONS = [
     },
     {
         id: 9,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "Energia Powered",
@@ -100,7 +100,7 @@ export const QUESTIONS = [
     },
     {
         id: 10,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "Energia Powered",
@@ -111,7 +111,7 @@ export const QUESTIONS = [
     },
     {
         id: 11,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "Energia Powered",
@@ -122,7 +122,7 @@ export const QUESTIONS = [
     },
     {
         id: 12,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "IEEE",
@@ -133,7 +133,7 @@ export const QUESTIONS = [
     },
     {
         id: 13,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "IEEE",
@@ -144,7 +144,7 @@ export const QUESTIONS = [
     },
     {
         id: 14,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "IEEE",
@@ -155,7 +155,7 @@ export const QUESTIONS = [
     },
     {
         id: 15,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "IEEE",
@@ -166,7 +166,7 @@ export const QUESTIONS = [
     },
     {
         id: 16,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "IEEE",
@@ -177,7 +177,7 @@ export const QUESTIONS = [
     },
     {
         id: 17,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "IEEE",
@@ -188,7 +188,7 @@ export const QUESTIONS = [
     },
     {
         id: 18,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "IEEE",
@@ -199,7 +199,7 @@ export const QUESTIONS = [
     },
     {
         id: 19,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "IEEE",
@@ -210,7 +210,7 @@ export const QUESTIONS = [
     },
     {
         id: 20,
-        question: "What is the best student activity Egypt?",
+        question: "What is the best student activity ever?",
         answers: [
             "Energia Powered",
             "IEEE",

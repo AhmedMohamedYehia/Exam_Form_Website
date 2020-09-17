@@ -70,10 +70,10 @@ function Questions({ questions, updateAnswers }) {
 function Exam({ onFinish, updateAnswers, timeFinished, QUESTIONS }) {
   useEffect(() => {
     if (timeFinished) {
-      console.log("submitted inside: "+dummyAnswers)
+      // console.log("submitted inside: "+dummyAnswers)
       onFinish(dummyAnswers);
     }
-  }, [ timeFinished]);
+  }, [timeFinished]);
 
   return (
     <Form onFinish={onFinish} autoComplete="off">
