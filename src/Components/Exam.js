@@ -1,15 +1,6 @@
 import React, { useEffect } from "react";
 import { Form, Radio, Button } from "antd";
 
-const layout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
-
 let dummyAnswers = {
   1: "Didn't answer",
   2: "Didn't answer",
@@ -32,9 +23,10 @@ let dummyAnswers = {
   19: "Didn't answer",
   20: "Didn't answer",
 };
+
 let numberOfAnsweredQuestions = 0;
 
-function Questions({ questions, updateAnswers, onFinish, timeFinished }) {
+function Questions({ questions, updateAnswers }) {
   const answered = (e, quesitonID) => {
     dummyAnswers[quesitonID] = e.target.value;
     numberOfAnsweredQuestions = 0;
@@ -44,6 +36,7 @@ function Questions({ questions, updateAnswers, onFinish, timeFinished }) {
       }
     }
   };
+
   return questions.map((question) => (
     <div>
       <h3>Question {question.id}</h3>
@@ -79,16 +72,15 @@ function Exam({ onFinish, updateAnswers, timeFinished, QUESTIONS }) {
     if (timeFinished) {
       onFinish(dummyAnswers);
     }
-  }, [timeFinished]);
+  }, [onFinish, timeFinished]);
+
   return (
-    <Form {...layout} onFinish={onFinish} autoComplete="off">
+    <Form onFinish={onFinish} autoComplete="off">
       <Questions
         questions={QUESTIONS}
         updateAnswers={updateAnswers(numberOfAnsweredQuestions)}
-        onFinish={onFinish}
-        timeFinished={timeFinished}
       />
-      <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+      <Form.Item>
         <Button type="primary" htmlType="submit">
           Submit Exam
         </Button>
