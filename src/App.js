@@ -82,7 +82,7 @@ function App() {
       data: values,
       success:function(){console.log("success")}
     })
-    console.log(jqxhr);
+    // console.log(jqxhr);
   };
 
   return (
