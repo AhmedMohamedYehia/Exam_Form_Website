@@ -14,7 +14,7 @@ function App() {
   const [answeredQuestions, setAnsweredQuestions] = useState(0);
   const [userGrade, setUserGrade] = useState(0);
   const [userData, setUserData] = useState({});
-  const [time, setTime] = useState({ seconds: 0, minutes: 1 });
+  const [time, setTime] = useState({ seconds: 0, minutes: 40 });
   const [timeFinished, setTimeFinished] = useState(false);
 
   var updatedSeconds = time.seconds;
@@ -56,13 +56,14 @@ function App() {
 
   const onExamFinish = (values) => {
     let grade = userGrade;
-    Object.values(values).forEach((answer, index) => 
-      {typeof answer === "undefined" &&
-        (values[`${index + 1}`] = "Didn't answer");
-        // console.log("answer: "+answer)
-      if(QUESTIONS[index] && answer === QUESTIONS[index].correct){
+    Object.values(values).forEach((answer, index) => {
+      typeof answer === "undefined" &&
+      (values[`${index + 1}`] = "Didn't answer");
+      // console.log("answer: "+answer)
+      if (QUESTIONS[index] && answer === QUESTIONS[index].correct) {
         grade += 1
-      }})
+      }
+    })
 
     setUserGrade(grade);
 
@@ -130,8 +131,8 @@ function App() {
               {answeredQuestions}/20
             </div>
           ) : (
-            ""
-          )}
+              ""
+            )}
         </dic>
       </div>
       <div
