@@ -1,222 +1,112 @@
 export const QUESTIONS = [
     {
         id: 1,
-        question: "What is the best student activity ever?",
+        question: "A trader buys coffee for $1200 and sells it for $1500. For each bag of coffee, he earns a profit of $50. How many bags of coffee did he has?",
         answers: [
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered"
+            "1",
+            "6",
+            "30"
         ],
-        correct: "Energia Powered"
+        correct: "6"
     },
     {
         id: 2,
-        question: "What is the best student activity ever?",
+        question: "Six swimmers are taking part in a swimming competition.\nSwimmer A is faster than B and slower than C. Swimmer D is slower than E and faster than F. Swimmer E is slower than C and faster than B. Who is the fastest swimmer?",
         answers: [
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered"
+            "D",
+            "E",
+            "C",
+            "F"
         ],
-        correct: "Energia Powered"
+        correct: "C"
     },
     {
         id: 3,
-        question: "What is the best student activity ever?",
+        question: "A college professor teaches a class of 80 students. Fourteen students are business majors, six are education majors, and the rest are undecided.\nWhat percentage of the class is undecided?",
         answers: [
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered"
+            "50%",
+            "75%",
+            "60%",
+            "25%"
         ],
-        correct: "Energia Powered"
+        correct: "75%"
     },
     {
         id: 4,
-        question: "What is the best student activity ever?",
+        question: "Mary, who is 16 years old, is four times as old as her brother. How old will Mary be when she is twice as old as her brother?",
         answers: [
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered"
+            "20",
+            "24",
+            "25",
+            "26",
+            "28"
         ],
-        correct: "Energia Powered"
+        correct: "24"
     },
     {
         id: 5,
-        question: "What is the best student activity ever?",
+        question: "Which conclusion follows from the statements with absolute certainty?\n- None of the stamp collectors is an architect.\n- all the drones are stamp collectors.",
         answers: [
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered"
+            "All stamp collectors are architects.",
+            "Architects are not drones.",
+            "No stamp collectors or drones.",
+            "Some drones are architects."
         ],
-        correct: "Energia Powered"
+        correct: "Architects are not drones."
     },
     {
         id: 6,
-        question: "What is the best student activity ever?",
+        question: "2, 10, 12, 60, 62, 310, …………. What is next?",
         answers: [
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered"
+            "312",
+            "360",
+            "1550",
+            "4650",
         ],
-        correct: "Energia Powered"
+        correct: "312"
     },
     {
         id: 7,
-        question: "What is the best student activity ever?",
+        question: "If a store sold 25 pairs of socks, making 25% profit of $150, how much did they charge for each pair?",
         answers: [
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered"
+            "$30",
+            "$15",
+            "$20",
+            "$24"
         ],
-        correct: "Energia Powered"
+        correct: "$24"
     },
     {
         id: 8,
-        question: "What is the best student activity ever?",
+        question: "A family is planning a vacation, travelling 300 miles from their house.\nIf they plan to stop at parks to allow the children to play every two hours, how many parks will they visit before they reach their destination? Assuming they travel 60 miles per hour.",
         answers: [
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered"
+            "3",
+            "1",
+            "2",
+            "4"
         ],
-        correct: "Energia Powered"
+        correct: "2"
     },
     {
         id: 9,
-        question: "What is the best student activity ever?",
+        question: "Ralph likes 25 but not 24; he likes 400 but not 300; he likes 144 but not 145.\nWhich does he like?",
         answers: [
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered"
+            "10",
+            "50",
+            "124",
+            "1600",
         ],
-        correct: "Energia Powered"
+        correct: "1600"
     },
     {
         id: 10,
-        question: "What is the best student activity ever?",
+        question: "(6 Workers) complete a project in 6 days when they work (6 hours a day).\nIn how many days this project can be completed if 3 workers work (9 hours a day).",
         answers: [
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered"
+            "9",
+            "8",
+            "7",
+            "10"
         ],
-        correct: "Energia Powered"
-    },
-    {
-        id: 11,
-        question: "What is the best student activity ever?",
-        answers: [
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered",
-            "Energia Powered"
-        ],
-        correct: "Energia Powered"
-    },
-    {
-        id: 12,
-        question: "What is the best student activity ever?",
-        answers: [
-            "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
-        ],
-        correct: "Energia Powered"
-    },
-    {
-        id: 13,
-        question: "What is the best student activity ever?",
-        answers: [
-            "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
-        ],
-        correct: "Energia Powered"
-    },
-    {
-        id: 14,
-        question: "What is the best student activity ever?",
-        answers: [
-            "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
-        ],
-        correct: "Energia Powered"
-    },
-    {
-        id: 15,
-        question: "What is the best student activity ever?",
-        answers: [
-            "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
-        ],
-        correct: "Energia Powered"
-    },
-    {
-        id: 16,
-        question: "What is the best student activity ever?",
-        answers: [
-            "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
-        ],
-        correct: "Energia Powered"
-    },
-    {
-        id: 17,
-        question: "What is the best student activity ever?",
-        answers: [
-            "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
-        ],
-        correct: "Energia Powered"
-    },
-    {
-        id: 18,
-        question: "What is the best student activity ever?",
-        answers: [
-            "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
-        ],
-        correct: "Energia Powered"
-    },
-    {
-        id: 19,
-        question: "What is the best student activity ever?",
-        answers: [
-            "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
-        ],
-        correct: "Energia Powered"
-    },
-    {
-        id: 20,
-        question: "What is the best student activity ever?",
-        answers: [
-            "Energia Powered",
-            "IEEE",
-            "STP",
-            "K-Vector"
-        ],
-        correct: "Energia Powered"
+        correct: "8"
     },
 ]

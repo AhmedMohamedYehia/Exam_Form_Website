@@ -5,7 +5,7 @@ import "./App.css";
 import "antd/dist/antd.css";
 import image from "./logo.png";
 import $ from "jquery";
-import { QUESTIONS } from "./Data/questions";
+import { QUESTIONS } from "./data/questions";
 import { Col, Avatar, Form, Input, Button, Descriptions, BackTop } from "antd";
 
 function App() {
@@ -58,8 +58,7 @@ function App() {
     let grade = userGrade;
     Object.values(values).forEach((answer, index) => {
       typeof answer === "undefined" &&
-      (values[`${index + 1}`] = "Didn't answer");
-      // console.log("answer: "+answer)
+        (values[`${index + 1}`] = "Didn't answer");
       if (QUESTIONS[index] && answer === QUESTIONS[index].correct) {
         grade += 1
       }
@@ -71,7 +70,6 @@ function App() {
     values["email"] = userData.user.email;
     values["grade"] = grade;
 
-    // console.log(values);
     setAnsweredQuestions(0);
     setTakingExam(false);
     setFinishedExam(true);
@@ -83,10 +81,8 @@ function App() {
       method: "GET",
       dataType: "json",
       data: values,
-      // success:function(){console.log("success")}
-    })
-    // console.log(jqxhr);
-  };
+    });
+  }
 
   return (
     <>
@@ -128,7 +124,7 @@ function App() {
               offset={7}
               style={{ color: "white", paddingTop: "1rem" }}
             >
-              {answeredQuestions}/20
+              {answeredQuestions}/{QUESTIONS.length}
             </div>
           ) : (
               ""

@@ -70,9 +70,9 @@ function Questions({ questions, updateAnswers }) {
 function Exam({ onFinish, updateAnswers, timeFinished, QUESTIONS }) {
   useEffect(() => {
     if (timeFinished) {
-      // console.log("submitted inside: "+dummyAnswers)
       onFinish(dummyAnswers);
     }
+    // eslint-disable-next-line
   }, [timeFinished]);
 
   return (
