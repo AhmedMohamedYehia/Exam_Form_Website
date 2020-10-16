@@ -267,7 +267,7 @@ function App() {
                 <p style={{ fontSize: "19px", textAlign: "center" }}>
                   Thank you {finishedExam ? userData.user.name : ""} for taking
                   the exam. <br />
-                  Your grade is {userGrade}/20
+                  Your grade is {userGrade}/{QUESTIONS.length}
                 </p>
               </Col>
             </div>
