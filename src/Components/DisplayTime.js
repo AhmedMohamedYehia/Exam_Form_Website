@@ -3,7 +3,7 @@ import '../App.css';
 import { Progress, Row } from 'antd';
 
 function DisplayTime(props) {
-  const totalNumberOfMinutes = 40;
+  const totalNumberOfMinutes = 10;
   var percentage = (((props.time.minutes * 60) + props.time.seconds) / (totalNumberOfMinutes * 60)) * 100;
   return (
     <Row justify="center">

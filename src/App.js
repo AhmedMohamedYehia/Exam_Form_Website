@@ -14,7 +14,7 @@ function App() {
   const [answeredQuestions, setAnsweredQuestions] = useState(0);
   const [userGrade, setUserGrade] = useState(0);
   const [userData, setUserData] = useState({});
-  const [time, setTime] = useState({ seconds: 0, minutes: 40 });
+  const [time, setTime] = useState({ seconds: 0, minutes: 10 });
   const [timeFinished, setTimeFinished] = useState(false);
 
   var updatedSeconds = time.seconds;
