@@ -172,7 +172,7 @@ function App() {
                   :
                   <p>
                     Thank you for applying with us.<br />
-                    This IQ test is the 2nd step of applying before the interview so be sure doing your best to pass it , so we can meet you at the interview.
+                    This IQ test is the 2<sup>nd</sup> step of applying before the interview so be sure doing your best to pass it , so we can meet you at the interview.
                     Good luck.
                   </p>
                 }
