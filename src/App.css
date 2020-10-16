@@ -20,6 +20,10 @@
   max-width: 100% !important;
 }
 
+.ant-form-item-label > label::after {
+  content: '' !important;
+}
+
 .quesiton {
   display: flex !important;
   flex-direction: column !important;
@@ -28,4 +32,5 @@
 label {
   text-align: left !important;
   height: fit-content !important;
+  white-space: normal !important;
 }
