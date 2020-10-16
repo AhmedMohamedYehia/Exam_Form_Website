@@ -27,4 +27,5 @@
 
 label {
   text-align: left !important;
+  height: fit-content !important;
 }
