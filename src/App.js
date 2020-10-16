@@ -161,28 +161,21 @@ function App() {
               </div>
               <div
                 className="info"
-                style={{ padding: "0.8rem", textAlign: "justify" }}
+                style={{ padding: "0.8rem", textAlign: "center" }}
               >
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur.
-                </p>
-                <p>
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.{" "}
-                </p>
-                <p>
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur.{" "}
-                </p>
-                <p>
-                  Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                  qui officia deserunt mollit anim id est laborum.
-                </p>
+                {finishedExam ?
+                  <p>
+                    You did it!<br />
+                    Thank you for your interest to join us.<br />
+                    Wait for us, we will contact you soon.
+                  </p>
+                  :
+                  <p>
+                    Thank you for applying with us.<br />
+                    This IQ test is the 2nd step of applying before the interview so be sure doing your best to pass it , so we can meet you at the interview.
+                    Good luck.
+                  </p>
+                }
               </div>
               <div
                 id="login"
@@ -257,20 +250,6 @@ function App() {
                 </Col>
               </div>
             </div>
-            <div
-              className="result"
-              style={{
-                display: !finishedExam ? "none" : "block",
-              }}
-            >
-              <Col>
-                <p style={{ fontSize: "19px", textAlign: "center" }}>
-                  Thank you {finishedExam ? userData.user.name : ""} for taking
-                  the exam. <br />
-                  Your grade is {userGrade}/{QUESTIONS.length}
-                </p>
-              </Col>
-            </div>
           </div>
         </div>
       </div>
@@ -278,7 +257,7 @@ function App() {
         style={{
           textAlign: "center",
           backgroundColor: "white",
-          margin: "2rem",
+          margin: "1.5rem",
         }}
       >
         ©2020 Energia Powered
